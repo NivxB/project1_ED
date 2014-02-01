@@ -2,13 +2,21 @@
 #ifndef FARRAYLIST_H
 #define FARRAYLIST_H
 
-class FArrayList{
-	FArrayList();
+#include "tdalist.h"
+#include "object.h"
+
+class FArrayList:public TDAList{
+    Object** data;
+    int capacity;
+public:
+    FArrayList();
+	FArrayList(int);
 	virtual ~FArrayList();
     virtual bool insert(Object*, int) ;
     virtual int indexOf(Object*)const ;
-    virtual Object* get(unsigned)const ;
-    virtual bool erase(unsigned) ;
+    virtual Object* get(int)const ;
+    virtual Object* remove(int);
+    virtual bool erase(int) ;
     virtual int prev(int) const ;
     virtual int next(int) const ;
     virtual void reset() ;
@@ -16,6 +24,8 @@ class FArrayList{
     virtual Object* last()const ;
     virtual void print()const ;
     virtual bool isFull()const ;
+    virtual void clear();
+    virtual bool isEmpty()const;
 };
 
 

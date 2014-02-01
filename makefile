@@ -1,5 +1,5 @@
-tda:	main.o integer.o linkedlist.o object.o tdalist.o dllnode.o varraylist.o
-	g++ main.o integer.o dllnode.o linkedlist.o object.o tdalist.o varraylist.o -o tda
+tda:	main.o integer.o linkedlist.o object.o tdalist.o dllnode.o varraylist.o farraylist.o
+	g++ main.o integer.o dllnode.o linkedlist.o object.o tdalist.o varraylist.o farraylist.o -o tda
 main.o:	main.cpp tdalist.h linkedlist.h integer.h
 	g++ -c main.cpp
 integer.o:	integer.cpp integer.h object.h
@@ -14,5 +14,7 @@ object.o:	object.h object.cpp
 	g++ -c object.cpp
 varraylist.o: varraylist.cpp varraylist.h
 	g++ -c varraylist.cpp
+farraylist.o: farraylist.cpp farraylist.h
+	g++ -c farraylist.cpp
 clean:
 	rm *.o tda

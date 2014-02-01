@@ -1,11 +1,11 @@
 #include <iostream>
 #include <cstdlib>
 #include "tdalist.h"
-//#include "varraylist.h" 	//Arreglos de tamaño variable
-// #include "farraylist.h" 	//Arreglos de tamaño fijo
-// #include "slinkedlist.h" 	//Lista Enlazada Sencilla
+#include "varraylist.h" 	//Arreglos de tamaño variable
+#include "farraylist.h" 	//Arreglos de tamaño fijo
+#include "slinkedlist.h" 	//Lista Enlazada Sencilla
 #include "linkedlist.h"         //Lista Doblemente Enlazada
-// #include "dlcursorlist.h"       //Cursor de Tamaño Fijo simulando lista doblemente enlazada
+#include "dlcursorlist.h"       //Cursor de Tamaño Fijo simulando lista doblemente enlazada
 
 #include "integer.h"
 
@@ -33,9 +33,9 @@ void testTDA(TDAList*);
 int main(int argc, char *argv[])
 {
 	TDAList* list;
-	// list = new VArrayList(10, 5);
-	// testTDA(list);
-	// delete list;
+	list = new VArrayList(10, 5);
+	testTDA(list);
+	delete list;
 	
 
 	// list = new FArrayList(25);
@@ -48,9 +48,9 @@ int main(int argc, char *argv[])
 	// delete list;
    
    
-	list = new LinkedList();
-	testTDA(list);
-	delete list;
+	// list = new LinkedList();
+	// testTDA(list);
+	// delete list;
    
    
 	// list = new DLCursorList();

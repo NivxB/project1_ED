@@ -30,7 +30,7 @@ class TDAList : public Object{
     virtual void print()const = 0;
     virtual bool isEmpty()const;
     virtual bool isFull()const = 0;
-    virtual void clear()const = 0;
+    virtual void clear() = 0;
     int size()const;
 };
 
