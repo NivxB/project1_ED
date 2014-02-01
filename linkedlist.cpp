@@ -5,6 +5,7 @@
 // Para tener la definición del NULL sin declarar más identificadores
 // innecesarios
 #include <stddef.h>
+#include <iostream>
 
 // Constructor por defecto de LinkedList
 LinkedList::LinkedList(){
@@ -84,7 +85,7 @@ int LinkedList::indexOf(Object* other)const {
     return -1;
 }
 // Consigue el elemento index de la lista, si index es una posición válida
-Object* LinkedList::get(unsigned index)const {
+Object* LinkedList::get(int index)const {
     if (index < 0 || index >= getSize)
         return NULL;
     DLLNode* tmp = head;
@@ -102,31 +103,39 @@ Object* LinkedList::get(unsigned index)const {
 * desenlazarlo de la lista y luego liberar su memoria, pues en caso contrario
 * liberaríamos todos los elementos siguiente a este elemento.
 */
-bool LinkedList::erase(unsigned pos) {
+Object* LinkedList::remove(int pos){
     // Si es una posición Inválida
     if (pos < 0 || pos >= getSize)
-        return false; // Indicar fracaso en la operación
+        //std::cerr<<"Fracaso en la operacion"<<std::endl;
+    return NULL;
+        //return false; // Indicar fracaso en la operación
     DLLNode* tmp;
+    DLLNode* tmp2;
     if (pos == 0){ // Desea Borrar la Cabeza
         // Desenlazar
         tmp = head->getNext();
+        tmp2=head;
         tmp->setPrev(NULL);
         head->setNext(NULL);
         // Liberar Memoria
-        delete head;
+        //delete head;
         // Actualizar head
         head = tmp;
+        getSize--;        
+        return tmp2->getData();
     }else if (pos == getSize - 1){ // Desea Borrar el último
         // Recorrer hasta el final
         tmp = head;
         for (int i=1; i<pos; i++)
            tmp = tmp->getNext();
         // Desenlazar
-        DLLNode* toErase = tmp->getNext();   
+        DLLNode* toErase = tmp->getNext();
+        tmp2= toErase;
         tmp->setNext(NULL);
         toErase->setPrev(NULL);
         // Liberar Memoria
-        delete toErase;
+        getSize--;
+        return toErase->getData();
     }else { // Desea Borrar de enmedio
         // Recorrer hasta el nodo anterior al que se desea borrar
         tmp = head;
@@ -139,10 +148,11 @@ bool LinkedList::erase(unsigned pos) {
         toErase->setNext(NULL);
         toErase->setPrev(NULL);
         // Liberar Memoria
-        delete toErase;        
+        getSize--;
+        return toErase->getData();        
     }
-    getSize--; // Disminuir Tamaño
-    return true; // Indicar Éxito
+     // Disminuir Tamaño
+    //return true; // Indicar Éxito
 }
 // Retorna el anterior a la posición pos
 // Implementado de la manera más sencilla, pues podría haberse usado
@@ -175,7 +185,7 @@ Object* LinkedList::last()const {
     if (!head)
         return NULL;
     DLLNode* tmp = head;
-    for (int i=0; i < getSize; i++)
+    for (int i=0; i < getSize-1; i++)
         tmp = tmp->getNext();
     return tmp->getData();
 }
@@ -193,3 +203,9 @@ bool LinkedList::isFull()const {
     return false;
 }
 
+bool LinkedList::erase(int n){
+    return false;
+}
+
+void LinkedList::clear(){
+}

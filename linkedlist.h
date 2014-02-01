@@ -19,8 +19,9 @@ class LinkedList : public TDAList{
     virtual ~LinkedList();
     virtual bool insert(Object*, int) ;
     virtual int indexOf(Object*)const ;
-    virtual Object* get(unsigned)const ;
-    virtual bool erase(unsigned) ;
+    virtual Object* get(int)const ;
+    virtual Object* remove(int);
+    virtual bool erase(int) ;
     virtual int prev(int) const ;
     virtual int next(int) const ;
     virtual void reset() ;
@@ -28,6 +29,8 @@ class LinkedList : public TDAList{
     virtual Object* last()const ;
     virtual void print()const ;
     virtual bool isFull()const ;
+
+    virtual void clear() ;
 };
 
 #endif
