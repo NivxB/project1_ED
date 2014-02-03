@@ -67,7 +67,7 @@ bool DLCursorList::insert(Object* E, int P){
 		data[head] = NewR;
 	}else if(P == 0 && head != -1){
 		NewR.prev = -1;
-		NewR.next = data[head].next;
+		NewR.next = head;
 		NewR.data = E;
 		int P = nextSlot();
 		data[head].prev = P;
