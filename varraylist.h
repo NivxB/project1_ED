@@ -4,6 +4,10 @@
 
 #include "tdalist.h"
 #include "object.h"
+#include "dlcursorlist.h" 
+#include "farraylist.h"     //Arreglos de tamaño fijo
+#include "slinkedlist.h"    //Lista Enlazada Sencilla
+#include "linkedlist.h"         //Lista Doblemente Enlazada
 
 class VArrayList:public TDAList{
 int capacity;
@@ -30,6 +34,10 @@ public:
     virtual bool isEmpty()const;
     virtual bool isFull()const;
     virtual void clear();
+    TDAList* toDLCursorList()const;
+    TDAList* toFArrayList()const;
+    TDAList* toSLinkedList()const;
+    TDAList* toLinkedList()const;
 
 
 };

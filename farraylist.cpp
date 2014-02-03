@@ -129,3 +129,35 @@ Object* FArrayList::remove(int p){
 	void FArrayList::clear(){
 		getSize=0;
 	}
+
+
+	TDAList* FArrayList::toDLCursorList()const{
+	TDAList* retVal = new DLCursorList();
+	for (int i = 0; i<getSize ; i++){
+		retVal->insert(data[i],i);
+	}
+	return retVal;
+}
+
+TDAList* FArrayList::toVArrayList()const{
+	TDAList* retVal = new VArrayList(getSize);
+	for (int i = 0; i<getSize ; i++){
+		retVal->insert(data[i],i);
+	}
+	return retVal;
+}
+TDAList* FArrayList::toSLinkedList()const{
+	TDAList* retVal = new SLinkedList();
+	for (int i = 0; i<getSize ; i++){
+		retVal->insert(data[i],i);
+	}
+	return retVal;
+}
+
+TDAList* FArrayList::toLinkedList()const{
+	TDAList* retVal = new LinkedList();
+	for (int i = 0; i<getSize ; i++){
+		retVal->insert(data[i],i);
+	}
+	return retVal;
+}

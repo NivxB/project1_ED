@@ -3,6 +3,10 @@
 #include "object.h"
 #include "tdalist.h"
 #include "dllnode.h"
+#include "dlcursorlist.h" 
+#include "varraylist.h"
+#include "farraylist.h"    //Lista Enlazada Sencilla
+#include "slinkedlist.h"
 /*
 * Declaración de la Clase LinkedList, que es una implementación del TDAList
 * utilizando listas doblemente enlazadas. Nótese la herencia en esta clase.
@@ -28,6 +32,10 @@ class LinkedList : public TDAList{
     virtual Object* last()const ;
     virtual void print()const ;
     virtual bool isFull()const ;
+    TDAList* toDLCursorList()const;
+    TDAList* toVArrayList()const;
+    TDAList* toFArrayList()const;
+    TDAList* toSLinkedList()const;
 };
 
 #endif

@@ -4,6 +4,10 @@
 
 #include "tdalist.h"
 #include "object.h"
+#include "dlcursorlist.h" 
+#include "varraylist.h"
+#include "slinkedlist.h"    //Lista Enlazada Sencilla
+#include "linkedlist.h"         //Lista Doblemente Enlazada
 
 class FArrayList:public TDAList{
     Object** data;
@@ -26,6 +30,10 @@ public:
     virtual bool isFull()const ;
     virtual void clear();
     virtual bool isEmpty()const;
+    TDAList* toDLCursorList()const;
+    TDAList* toVArrayList()const;
+    TDAList* toSLinkedList()const;
+    TDAList* toLinkedList()const;
 };
 
 

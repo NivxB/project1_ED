@@ -202,3 +202,41 @@ bool LinkedList::isFull()const {
     return false;
 }
 
+    TDAList* LinkedList::toDLCursorList()const{
+    TDAList* retVal = new DLCursorList();
+    DLLNode* temp = head;
+    for (int i = 0; i<getSize ; i++){
+        retVal->insert(temp->getData(),i);
+        temp = temp->getNext();
+    }
+    return retVal;
+}
+
+TDAList* LinkedList::toVArrayList()const{
+    TDAList* retVal = new VArrayList(getSize);
+    DLLNode* temp = head;
+    for (int i = 0; i<getSize ; i++){
+        retVal->insert(temp->getData(),i);
+        temp = temp->getNext();
+    }
+    return retVal;
+}
+TDAList* LinkedList::toSLinkedList()const{
+    TDAList* retVal = new SLinkedList();
+    DLLNode* temp = head;
+    for (int i = 0; i<getSize ; i++){
+        retVal->insert(temp->getData(),i);
+        temp = temp->getNext();
+    }
+    return retVal;
+}
+
+TDAList* LinkedList::toFArrayList()const{
+    TDAList* retVal = new FArrayList(getSize);
+    DLLNode* temp = head;
+    for (int i = 0; i<getSize ; i++){
+        retVal->insert(temp->getData(),i);
+        temp = temp->getNext();
+    }
+    return retVal;
+}
