@@ -20,17 +20,14 @@ class LinkedList : public TDAList{
     virtual bool insert(Object*, int) ;
     virtual int indexOf(Object*)const ;
     virtual Object* get(int)const ;
-    virtual Object* remove(int);
-    virtual bool erase(int) ;
+    virtual Object* remove(int) ;
     virtual int prev(int) const ;
     virtual int next(int) const ;
-    virtual void reset() ;
+    virtual void clear() ;
     virtual Object* first()const ;
     virtual Object* last()const ;
     virtual void print()const ;
     virtual bool isFull()const ;
-
-    virtual void clear() ;
 };
 
 #endif

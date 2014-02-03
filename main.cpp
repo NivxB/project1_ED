@@ -33,19 +33,20 @@ void testTDA(TDAList*);
 int main(int argc, char *argv[])
 {
 	TDAList* list;
-	// list = new VArrayList(10, 5);
-	// testTDA(list);
-	// delete list;
+
+	list = new VArrayList(10, 5);
+	testTDA(list);
+	delete list;
 	
 
-	// list = new FArrayList(25);
-	// testTDA(list);
-	// delete list;
+	list = new FArrayList(25);
+	testTDA(list);
+	delete list;
    
    
-	// list = new SLinkedList();
-	// testTDA(list);
-	// delete list;
+	list = new SLinkedList();
+	testTDA(list);
+	delete list;
    
    
 	list = new LinkedList();
@@ -53,25 +54,26 @@ int main(int argc, char *argv[])
 	delete list;
    
    
-	// list = new DLCursorList();
-	// testTDA(list);
-	// delete list;
+	list = new DLCursorList();
+	testTDA(list);
+	delete list;
     
     return 0;
+
 }
-
-
 void testTDA(TDAList* list){
 	// Insert 20 numbers
+
 	for (int i=0; i<20; i++)
 		list->insert(new Integer(i*2), i);
 	
+	
 	// Print list
 	for (int i=0; i<list->size(); i++)
-		cout << list->get(i)->toString() << endl;
+		cout << list->get(i)->toString()<<endl;
 	
 	// Remove three Elements
-	Object* t = NULL;
+	Object* t;
 	t = list->remove(0);
 	delete t;
 	t = list->remove(10);
