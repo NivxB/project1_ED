@@ -81,13 +81,13 @@ bool DLCursorList::insert(Object* E, int P){
 			temp = data[temp].next;
 		NewR.prev = temp;
 		NewR.data = E;
+		NewR.next = data[temp].next;
 		if (data[temp].next != -1)
-			NewR.next = data[temp].next;
-		else
-			NewR.next = -1;
+			data[data[temp].next].prev = P;
+		
+		data[temp].next = P;
 
-		if (temp != -1)
-			data[temp].next = P;
+
 		data[S] = NewR;
 	}
 	getSize++;
