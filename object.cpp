@@ -9,6 +9,7 @@ using std::stringstream;
 // Constructor por Defecto de Object
 Object::Object(){
 }
+//CO
 // Destructor de Object, necesario colocarlo para "definir" que los
 // destructores de esta "Familia" de clases serán virtuales
 Object::~Object(){
