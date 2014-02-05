@@ -13,6 +13,7 @@ DLLNode::DLLNode(){
 // Constructor especial de la Clase. Este es el más utilizado
 DLLNode::DLLNode(Object* aData){
     data = aData;
+    next = prev = NULL;
 }
 // Constructor especial de la Clase. Raramente Usado
 DLLNode::DLLNode(Object* aData, DLLNode* aPrev, DLLNode* aNext){
@@ -30,8 +31,9 @@ DLLNode::DLLNode(Object* aData, DLLNode* aPrev, DLLNode* aNext){
 * sólo liberar un nodo, pues este deberá estar suelto.                        *
 */
 DLLNode::~DLLNode(){
-    if (data)
+    if (data){
         delete data;
+    }
     if (next)
         delete next;
 }

@@ -89,12 +89,13 @@ void testTDA(TDAList* list){
 	cout << "Last  = " << list->last() << endl;
 
 	// indexOf
-	//cambio en lo que es el inndex of probando
+	//cambio en lo que es el inndex of probando;
 	for (int i=0; i<20; i++){
-		Integer e(i);
-		cout << "list->indexOf(" << i << ") = " << list->indexOf( & e ) << endl;
+		Object* R = new Integer(i);
+		cout << "list->indexOf(" << i << ") = " << list->indexOf( R ) << endl;
+		delete R;
 	}
-
+	
 	list->clear();
 	cout << "Size = " << list->size() << endl;
 }

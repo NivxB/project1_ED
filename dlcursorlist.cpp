@@ -84,10 +84,7 @@ bool DLCursorList::insert(Object* E, int P){
 		NewR.next = data[temp].next;
 		if (data[temp].next != -1)
 			data[data[temp].next].prev = P;
-		
 		data[temp].next = P;
-
-
 		data[S] = NewR;
 	}
 	getSize++;
@@ -139,7 +136,8 @@ Object* DLCursorList::remove(int P){
 		data[N].data = NULL;
 
 		data[temp].next = data[N].next;
-		data[data[temp].next].prev = temp;
+		if (data[temp].next != -1)
+			data[data[temp].next].prev = temp;
 	}
 	getSize--;
 	return tmpdata;

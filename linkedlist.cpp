@@ -5,7 +5,8 @@
 // Para tener la definición del NULL sin declarar más identificadores
 // innecesarios
 #include <stddef.h>
-
+#include <iostream>
+using namespace std;
 // Constructor por defecto de LinkedList
 LinkedList::LinkedList(){
     head = NULL;
